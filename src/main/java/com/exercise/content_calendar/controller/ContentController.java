@@ -21,6 +21,8 @@ import org.springframework.web.server.ResponseStatusException;
 import com.exercise.content_calendar.model.Content;
 import com.exercise.content_calendar.repository.ContentCollectionRepository;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("/api/content")
 @CrossOrigin
@@ -41,7 +43,7 @@ public class ContentController {
 	
 	@ResponseStatus(HttpStatus.CREATED)
 	@PostMapping("")
-	public void create(@RequestBody Content content) {
+	public void create(@Valid @RequestBody Content content) {
 		repository.save(content);
 	}
 	
