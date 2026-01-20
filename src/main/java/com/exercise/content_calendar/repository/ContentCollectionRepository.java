@@ -20,9 +20,6 @@ public class ContentCollectionRepository {
 	public ContentCollectionRepository() {
 	}
 	
-	public List<Content> findAll(){
-		return contentList;
-	}
 	
 	public Optional<Content> findById(Integer id) {
 		return contentList.stream().filter(c -> c.id().equals(id)).findFirst();

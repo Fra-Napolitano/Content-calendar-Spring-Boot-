@@ -20,6 +20,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.exercise.content_calendar.model.Content;
 import com.exercise.content_calendar.repository.ContentCollectionRepository;
+import com.exercise.content_calendar.repository.ContentRepository;
 
 import jakarta.validation.Valid;
 
@@ -29,7 +30,7 @@ import jakarta.validation.Valid;
 public class ContentController {
 	
 	@Autowired
-	private ContentCollectionRepository repository;
+	private ContentRepository repository;
 	
 	@GetMapping("")
 	public List<Content> findAll(){
@@ -59,7 +60,7 @@ public class ContentController {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Integer id) {
-		repository.delete(id);
+		repository.deleteById(id);
 	}
 
 }
